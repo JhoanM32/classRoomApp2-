@@ -2,14 +2,14 @@ package com.example.classRoomAPI.models;
 
 public class Course {
     private Integer idCourse;
-    private String courseName;
+    private String name;
 
     public Course() {
     }
 
-    public Course(Integer idCourse, String courseName) {
+    public Course(Integer idCourse, String name) {
         this.idCourse = idCourse;
-        this.courseName = courseName;
+        this.name = name;
     }
 
     public Integer getIdCourse() {
@@ -20,11 +20,11 @@ public class Course {
         this.idCourse = idCourse;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getName() {
+        return name;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setName(String name) {
+        this.name = name;
     }
 }

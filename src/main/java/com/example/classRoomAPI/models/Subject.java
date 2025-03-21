@@ -2,14 +2,14 @@ package com.example.classRoomAPI.models;
 
 public class Subject {
     private Integer subjectId;
-    private String subjectName;
+    private String name;
 
     public Subject() {
     }
 
-    public Subject(Integer subjectId, String subjectName) {
+    public Subject(Integer subjectId, String name) {
         this.subjectId = subjectId;
-        this.subjectName = subjectName;
+        this.name = name;
     }
 
     public Integer getSubjectId() {
@@ -20,11 +20,11 @@ public class Subject {
         this.subjectId = subjectId;
     }
 
-    public String getSubjectName() {
-        return subjectName;
+    public String getName() {
+        return name;
     }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
+    public void setName(String name) {
+        this.name = name;
     }
 }
