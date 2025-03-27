@@ -1,8 +1,20 @@
 package com.example.classRoomAPI.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
+
 public class Teacher {
+
     private Integer idTeacher;
     private  String specialty;
+
+    //Creando relacion (1 a muchos)
+    @OneToMany(mappedBy = "teacher")
+    @JsonManagedReference
+    private List<Course> cursos;
+
 
     public Teacher() {
     }
