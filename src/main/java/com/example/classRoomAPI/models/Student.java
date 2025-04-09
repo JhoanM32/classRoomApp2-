@@ -1,12 +1,23 @@
 package com.example.classRoomAPI.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.OneToMany;
+
 import java.util.Date;
+import java.util.List;
 
 public class Student {
     private Integer idStudent;
     private String grade;
     private Date birthdate;
     private String address;
+
+    //Creando relacion (1 a muchos)
+    @OneToMany(mappedBy = "student")
+    @JsonManagedReference
+    private List<Grade>calificaciones;
+    private List<Attendance>asistencias;
 
     public Student() {
 

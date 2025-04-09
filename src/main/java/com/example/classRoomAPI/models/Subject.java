@@ -1,8 +1,17 @@
 package com.example.classRoomAPI.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
+
 public class Subject {
     private Integer subjectId;
     private String name;
+
+    @OneToMany(mappedBy = "subject")
+    @JsonManagedReference
+    private List<Grade>calificaciones;
 
     public Subject() {
     }
