@@ -1,8 +1,8 @@
-package Controller;
+package com.example.classRoomAPI.Controller;
 
 
-import com.example.classRoomAPI.models.Subject;
-import com.example.classRoomAPI.service.SubjectService;
+import com.example.classRoomAPI.models.Course;
+import com.example.classRoomAPI.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/materias")
-public class SubjectController {
+@RequestMapping("/cursos")
+public class CourseController {
     @Autowired
-    SubjectService service;
+    CourseService service;
 
     //guardar
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Subject datosQueEnviaElCliente){
+    public ResponseEntity<?> save(@RequestBody Course datosQueEnviaElCliente){
         try {
             return ResponseEntity
                     .status(HttpStatus.CREATED)
-                    .body(this.service.saveSubject(datosQueEnviaElCliente));
+                    .body(this.service.saveCourse(datosQueEnviaElCliente));
 
         }catch (Exception error){
             return ResponseEntity
@@ -37,6 +37,7 @@ public class SubjectController {
 
 
     //modificar
+
 
 
 }

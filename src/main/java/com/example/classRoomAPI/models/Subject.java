@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 
 import java.util.List;
 @Entity
-
+@Table(name = "materia")
 public class Subject {
 
     @Id
@@ -42,6 +42,7 @@ public class Subject {
     public void setName(String name) {
         this.name = name;
     }
+
 
     public List<Grade> getCalificaciones() {
         return calificaciones;

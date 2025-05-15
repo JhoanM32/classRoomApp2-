@@ -1,8 +1,7 @@
-package Controller;
+package com.example.classRoomAPI.Controller;
 
-
-import com.example.classRoomAPI.models.Tuition;
-import com.example.classRoomAPI.service.TuitionService;
+import com.example.classRoomAPI.models.User;
+import com.example.classRoomAPI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,19 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/calificaciones")
-public class GradeController {
+@RequestMapping("/usuarios")
+public class UserController {
 
     @Autowired
-    TuitionService service;
+    UserService service;
 
     //guardar
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Tuition datosQueEnviaElCliente){
+    public ResponseEntity<?> save(@RequestBody User datosQueEnviaElCliente){
         try {
             return ResponseEntity
                     .status(HttpStatus.CREATED)
-                    .body(this.service.saveTuition(datosQueEnviaElCliente));
+                    .body(this.service.saveUser(datosQueEnviaElCliente));
 
         }catch (Exception error){
             return ResponseEntity

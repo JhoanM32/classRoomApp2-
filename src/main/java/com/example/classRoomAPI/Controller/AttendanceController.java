@@ -1,43 +1,44 @@
-package Controller;
+package com.example.classRoomAPI.Controller;
 
-import com.example.classRoomAPI.models.Teacher;
-import com.example.classRoomAPI.service.TeacherService;
+
+import com.example.classRoomAPI.models.Attendance;
+
+import com.example.classRoomAPI.service.AttendanceService;
+import jdk.jfr.Registered;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/docentes")
-public class TeacherController {
+@Registered
+@RequestMapping("/asistencias")
+public class AttendanceController {
 
     @Autowired
-    TeacherService service;
+    AttendanceService service;
 
     //guardar
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Teacher datosQueEnviaElCliente){
+    public ResponseEntity<?> save(@RequestBody Attendance datosQueEnviaElCliente){
         try {
-
             return ResponseEntity
                     .status(HttpStatus.CREATED)
-                    .body(this.service.saveTeacher(datosQueEnviaElCliente));
+                    .body(this.service.saveAttendance(datosQueEnviaElCliente));
 
         }catch (Exception error){
-
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(error.getMessage());
         }
     }
-
     //buscartodos
 
     //buscarPorid
 
 
     //modificar
+
+
 }

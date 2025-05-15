@@ -1,31 +1,29 @@
-package Controller;
+package com.example.classRoomAPI.Controller;
 
 
-import com.example.classRoomAPI.models.Attendance;
-
-import com.example.classRoomAPI.service.AttendanceService;
-import jdk.jfr.Registered;
+import com.example.classRoomAPI.models.Subject;
+import com.example.classRoomAPI.service.SubjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Registered
-@RequestMapping("/asistencias")
-public class AttendanceController {
-
+@RestController
+@RequestMapping("/materias")
+public class SubjectController {
     @Autowired
-    AttendanceService service;
+    SubjectService service;
 
     //guardar
     @PostMapping
-    public ResponseEntity<?> save(@RequestBody Attendance datosQueEnviaElCliente){
+    public ResponseEntity<?> save(@RequestBody Subject datosQueEnviaElCliente){
         try {
             return ResponseEntity
                     .status(HttpStatus.CREATED)
-                    .body(this.service.saveAttendance(datosQueEnviaElCliente));
+                    .body(this.service.saveSubject(datosQueEnviaElCliente));
 
         }catch (Exception error){
             return ResponseEntity

@@ -54,6 +54,7 @@ public class Grade {
         this.grade = grade;
     }
 
+
     public Student getStudent() {
         return student;
     }

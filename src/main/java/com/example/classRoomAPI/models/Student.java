@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
 @Entity
-@Table(name = "curso")
+@Table(name = "estudiante")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +29,9 @@ public class Student {
     @JsonManagedReference
     private List<Grade>grades;
 
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Teacher>teachers;
 
 
     public Student() {

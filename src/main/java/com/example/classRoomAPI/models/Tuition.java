@@ -13,6 +13,10 @@ public class Tuition {
     @Column(name = "fecha_matricula", nullable = false)
     private Date tuitionDate;
 
+    @ManyToOne
+    @JoinColumn(name = "fk_curso",referencedColumnName = "id_curso" )
+    private Course course;
+
     public Tuition() {
     }
 

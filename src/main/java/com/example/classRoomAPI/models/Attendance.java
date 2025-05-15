@@ -2,6 +2,7 @@ package com.example.classRoomAPI.models;
 
 import com.example.classRoomAPI.helpers.Status;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -25,6 +26,11 @@ public class Attendance {
     @JoinColumn(name = "fk_student", referencedColumnName = "id_student")
     @JsonBackReference
     private Student student;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_curso",referencedColumnName = "id_curso" )
+    @JsonManagedReference
+    private Course course;
 
 
 
@@ -68,6 +74,13 @@ public class Attendance {
     public void setStudent(Student student) {
         this.student = student;
 
+    }
 
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }
