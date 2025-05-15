@@ -1,8 +1,14 @@
 package com.example.classRoomAPI.models;
 
 import com.example.classRoomAPI.helpers.UserType;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "usuario")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idUser;
     private String name;
     private String email;
@@ -69,4 +75,6 @@ public class User {
     public void setUserType(UserType userType) {
         this.userType = userType;
     }
+
+
 }

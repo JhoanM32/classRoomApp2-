@@ -1,9 +1,16 @@
 package com.example.classRoomAPI.models;
 
-import java.util.Date;
+import jakarta.persistence.*;
 
+import java.util.Date;
+@Entity
+@Table(name = "matricula")
 public class Tuition {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer tuitionId;
+    @Column(name = "fecha_matricula", nullable = false)
     private Date tuitionDate;
 
     public Tuition() {
@@ -29,4 +36,6 @@ public class Tuition {
     public void setTuitionDate(Date tuitionDate) {
         this.tuitionDate = tuitionDate;
     }
+
+
 }

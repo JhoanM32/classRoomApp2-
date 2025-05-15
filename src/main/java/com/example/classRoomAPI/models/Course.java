@@ -44,4 +44,12 @@ public class Course {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 }

@@ -1,12 +1,18 @@
 package com.example.classRoomAPI.models;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.List;
+@Entity
 
 public class Subject {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_subject")
     private Integer subjectId;
+    @Column (name = "nombre")
     private String name;
 
     @OneToMany(mappedBy = "subject")
@@ -36,4 +42,13 @@ public class Subject {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<Grade> getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificaciones(List<Grade> calificaciones) {
+        this.calificaciones = calificaciones;
+    }
+
 }

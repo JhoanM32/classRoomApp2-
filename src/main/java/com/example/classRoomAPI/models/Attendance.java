@@ -16,6 +16,7 @@ public class Attendance {
 
     @Column(name = "fecha")
     private Date date;
+    @Enumerated(EnumType.STRING)
     @Column(name = "estado")
     private Status status;
 
@@ -23,7 +24,7 @@ public class Attendance {
     @ManyToOne
     @JoinColumn(name = "fk_student", referencedColumnName = "id_student")
     @JsonBackReference
-    private Attendance attendance;
+    private Student student;
 
 
 
@@ -58,5 +59,15 @@ public class Attendance {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+
+
     }
 }

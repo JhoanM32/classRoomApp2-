@@ -1,23 +1,35 @@
 package com.example.classRoomAPI.models;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.Date;
 import java.util.List;
-
+@Entity
+@Table(name = "curso")
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "id_student")
     private Integer idStudent;
+    @Column (name = "grado")
     private String grade;
+    @Column (name = "fecha_nacimiento")
     private Date birthdate;
+    @Column (name = "email")
     private String address;
 
     //Creando relacion (1 a muchos)
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Attendance>attendances;
+
     @OneToMany(mappedBy = "student")
     @JsonManagedReference
-    private List<Grade>calificaciones;
-    private List<Attendance>asistencias;
+    private List<Grade>grades;
+
+
 
     public Student() {
 
@@ -60,5 +72,21 @@ public class Student {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public List<Attendance> getAttendances() {
+        return attendances;
+    }
+
+    public void setAttendances(List<Attendance> attendances) {
+        this.attendances = attendances;
+    }
+
+    public List<Grade> getGrades() {
+        return grades;
+    }
+
+    public void setGrades(List<Grade> grades) {
+        this.grades = grades;
     }
 }
