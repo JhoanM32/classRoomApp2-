@@ -1,5 +1,6 @@
 package com.example.classRoomAPI.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -14,8 +15,14 @@ public class Tuition {
     private Date tuitionDate;
 
     @ManyToOne
-    @JoinColumn(name = "fk_curso",referencedColumnName = "id_curso" )
+    @JoinColumn(name = "fk_course",referencedColumnName = "id_course" )
+    @JsonBackReference
     private Course course;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_student",referencedColumnName = "id_student")
+    @JsonBackReference
+    private Student student;
 
     public Tuition() {
     }

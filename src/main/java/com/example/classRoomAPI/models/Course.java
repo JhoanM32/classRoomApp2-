@@ -11,7 +11,7 @@ import java.util.List;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id_curso")
+    @Column(name = "id_course")
     private Integer id;
 
     @Column(name = "nombre", length = 100, unique = false, nullable = false)
@@ -30,6 +30,10 @@ public class Course {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     @JsonManagedReference
     private  List<Tuition> tuitions;
+
+    @OneToMany(mappedBy = "course")
+    @JsonManagedReference
+    private List<Subject>subjects;
 
 
     public Course() {

@@ -28,8 +28,8 @@ public class Attendance {
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "fk_curso",referencedColumnName = "id_curso" )
-    @JsonManagedReference
+    @JoinColumn(name = "fk_course",referencedColumnName = "id_course" )
+    @JsonBackReference
     private Course course;
 
 

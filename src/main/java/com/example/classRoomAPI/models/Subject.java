@@ -1,5 +1,6 @@
 package com.example.classRoomAPI.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -17,7 +18,12 @@ public class Subject {
 
     @OneToMany(mappedBy = "subject")
     @JsonManagedReference
-    private List<Grade>calificaciones;
+    private List<Grade>grades;
+
+    @ManyToOne
+    @JoinColumn(name = "fk_course",referencedColumnName = "id_course" )
+    @JsonBackReference
+    private Course course;
 
     public Subject() {
     }
@@ -44,12 +50,11 @@ public class Subject {
     }
 
 
-    public List<Grade> getCalificaciones() {
-        return calificaciones;
+    public List<Grade> getGrades() {
+        return grades;
     }
 
-    public void setCalificaciones(List<Grade> calificaciones) {
-        this.calificaciones = calificaciones;
+    public void setGrades(List<Grade> grades) {
+        this.grades = grades;
     }
-
 }
